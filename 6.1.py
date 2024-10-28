@@ -9,6 +9,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import threading
 from time import sleep
+
 # apiby @dothanh1110 (tôn trọng tý thì đừng xoá)
 # web: ctdotech.tech
 
@@ -24,13 +25,6 @@ def generate_random_name():
     first_name = random.choice(first_names)
     return f"{last_name} {middle_name} {first_name}".strip()
 
-
-def generate_random_id():
-    def random_segment(length):
-        return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
-    
-    return f"{random_segment(2)}7D7{random_segment(1)}6{random_segment(1)}E-D52E-46EA-8861-ED{random_segment(1)}BB{random_segment(2)}86{random_segment(3)}"
-
 def generate_random_id():
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=32))
 
@@ -40,47 +34,10 @@ def format_device_id(device_id):
 random_id = generate_random_id()
 formatted_device_id = format_device_id(random_id)
 
-
-#//////////////////////////
-
-trang = "\033[1;37m\033[1m"
-xanh_la = "\033[1;32m\033[1m"
-xanh_duong = "\033[1;34m\033[1m"
-xanhnhat = '\033[1m\033[38;5;51m'
-do = "\033[1;31m\033[1m\033[1m"
-xam='\033[1;30m\033[1m'
-vang = "\033[1;33m\033[1m"
-tim = "\033[1;35m\033[1m"
-hongnhat = "#FFC0CB"
-kt_code = "</>"
-dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
-vua = "\033[1;31m\033[1m\033[1m[\033[1;37m\033[1m=.=\033[1;31m\033[1m\033[1m] \033[1;37m\033[1m=> \033[1;32m\033[1m"
-
-
-banner = """
-\033[1;33m╔═══════════════════════════════════════════════╗
-\033[1;33m║\033[1;35m██╗░░██╗██████╗██████═╗░██╗░░░░██░░░░██╗██████╗\033[1;33m║
-\033[1;33m║\033[1;33m██║░░██║██░░░░║██░░░██╝░██║░░░░░██░░██╔╝██░░░░║\033[1;33m║
-\033[1;33m║\033[1;39m███████║██████║██████╚╗░██║░░░░░░████╔╝░██████║\033[1;33m║
-\033[1;33m║\033[1;36m██╔══██║██░░░░║██╔══██╚╗██║░░░░░░░██╔╝░░░░░░██║\033[1;33m║
-\033[1;33m║\033[1;32m██║░░██║██████║██║░░░██║███████╗░░██║░░░██████║\033[1;33m║ 
-\033[1;33m║\033[1;30m╚═╝░░╚═╝╚═════╝╚═╝░░░╚═╝╚══════╝░░╚═╝░░░╚═════╝\033[1;33m║ 
-\033[1;33m║\033[1;30m░░░░╔██═╗░░╔███╗░░╔═██╗░░██═╗░░░██████═╗░░░░░░░\033[1;33m║ 
-\033[1;33m║\033[1;31m░░░░╚╗██╚╗╔╝███╚╗╔╝██╔╝░████╚╗░░██░░░██╝░░░░░░░\033[1;33m║ 
-\033[1;33m║\033[1;32m░░░░░╚╗██╚╝██░██╚╝██╔╝░██░░██╚╗░██████╚╗░░░░░░░\033[1;33m║ 
-\033[1;33m║\033[1;33m░░░░░░╚╗████╔═╗████╔╝░████████╚╗██╔══██╚╗░░░░░░\033[1;33m║ 
-\033[1;33m║\033[1;34m░░░░░░░╚╗██╔╝░╚╗██╔╝░██╔═════██║██║░░░██║░░░░░░\033[1;33m║ 
-\033[1;33m║\033[1;35m░░░░░░░░╚══╝░░░╚══╝░░╚═╝░░░░░╚═╝╚═╝░░░╚═╝░░░░░░\033[1;33m║ 
-\033[1;33m╠═══════════════════════════════════════════════╣
-\033[1;33m║\033[1;34m▶ Nhóm Zalo  : \033[1;35mzalo.me/g/rbpywb976             \033[1;33m║
-\033[1;33m║\033[1;34m▶ FaceBook : \033[1;35mfacebook.com/QuanHau210           \033[1;33m║
-\033[1;33m║\033[1;34m▶ Zalo : \033[1;35m0961386638                            \033[1;33m║
-\033[1;33m║\033[1;34m▶ Mua Key Vip Cứ Liên Hệ Zalo Nhé              \033[1;33m║
-\033[1;33m║\033[1;34m▶ Nếu Có Lỗi Vui Lòng Báo Cho Facebook Nhé     \033[1;33m║
-\033[1;33m╚═══════════════════════════════════════════════╝
-\033[1;32m-------------------------------------------------"""
-os.system('cls' if os.name == 'nt' else 'clear')
-print(banner)
+# Xóa giao diện không cần thiết
+# In kết quả
+print("Random Name:", generate_random_name())
+print("Formatted Device ID:", formatted_device_id)
 
 def send_otp_via_sapo(sdt):
     cookies = {
