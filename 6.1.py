@@ -34,10 +34,7 @@ def format_device_id(device_id):
 random_id = generate_random_id()
 formatted_device_id = format_device_id(random_id)
 
-# Xóa giao diện không cần thiết
-# In kết quả
-print("Random Name:", generate_random_name())
-print("Formatted Device ID:", formatted_device_id)
+
 
 def send_otp_via_sapo(sdt):
     cookies = {
